@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="aaa">aaa</div>
+	<div class="bb">
+		
+	</div>
+	<!-- <table style="width:0px;height:0px;filter:alpha(opacity:0);opacity:0; position:absolute;" id="tableSchedule">
+	    <thead>
+	        <tr>
+	            <td>社区</td>
+	            <td>楼栋</td>
+	            <td>门牌号</td>
+	            <td>绑定状态</td></tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>富盛大厦</td>
+	            <td>1座</td>
+	            <td>1-301</td>
+	            <td>已绑定</td></tr>
+	        <tr>
+	            <td>富盛大厦</td>
+	            <td>2座</td>
+	            <td>2-701</td>
+	            <td>已绑定</td></tr>
+	        <tr>
+	            <td>富盛大厦</td>
+	            <td>2座</td>
+	            <td>2-601</td>
+	            <td>已绑定</td></tr>
+	        <tr>
+	            <td>富盛大厦</td>
+	            <td>2座</td>
+	            <td>2-603</td>
+	            <td>已绑定</td></tr>
+	        <tr>
+	            <td>富盛大厦</td>
+	            <td>1座</td>
+	            <td>物业办公室</td>
+	            <td>已绑定</td></tr>
+	    </tbody>
+	</table> -->
+<script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="FileSaver.min.js"></script>
+<script type="text/javascript" src="xlsx.core.min.js"></script>
+<script type="text/javascript" src="tableExport.min.js?_t=1"></script>
+<script>
+	$(".aaa").click(function(){
+		var a = ''
+		var a1 = ''
+		var a2 = ''
+		for (var i = 0; i <=10000; i++) {
+			if (i==0) {
+				console.log('0')
+				console.log(new Date())
+				console.log(new Date().getTime())
+				a1 = new Date().getTime()
+			}
+			a += "<tr>123</tr>"
+			if (i==10000) {
+				console.log('0')
+				console.log(new Date())
+				console.log(new Date().getTime())
+				a2 = new Date().getTime()
+				console.log('差值')
+				console.log(a2 -a1)
+			}
+		}
+		var tableContent = '<table style="width:0px;height:0px;filter:alpha(opacity:0);opacity:0; position:absolute;" id="tableSchedule"><thead><tr><td>社区</td><td>楼栋</td><td style="width:400px;">门牌号</td><td>绑定状态</td></tr></thead><tbody>';
+		$('.bb').html(tableContent)
+		$("#tableSchedule").tableExport({type: 'xlsx',worksheetName: '绑定明细', fileName: '绑定明细数据__'+new Date()});
+	});
+</script>
+<script>
+	// $.fn.extend({
+ //        tableExport: function (options) {
+ //            var defaults = {
+ //                consoleLog: false,
+ //                csvEnclosure: '"',
+ //                csvSeparator: ',',
+ //                csvUseBOM: true,
+ //                displayTableName: false,
+ //                escape: false,
+ //                excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+ //                fileName: 'tableExport',
+ //                htmlContent: false,
+ //                ignoreColumn: [],
+ //                ignoreRow: [],
+ //                jspdf: {
+ //                    orientation: 'p',
+ //                    unit: 'pt',
+ //                    format: 'a4',
+ //                    margins: { left: 20, right: 10, top: 10, bottom: 10 },
+ //                    autotable: {
+ //                        padding: 2,
+ //                        lineHeight: 12,
+ //                        fontSize: 8,
+ //                        tableExport: {
+ //                            onAfterAutotable: null,
+ //                            onBeforeAutotable: null,
+ //                            onTable: null
+ //                        }
+ //                    }
+ //                },
+ //                numbers: {
+ //                    html: {
+ //                        decimalMark: '.',
+ //                        thousandsSeparator: ','
+ //                    },
+ //                    output: {
+ //                        decimalMark: '.',
+ //                        thousandsSeparator: ','
+ //                    }
+ //                },
+ //                onCellData: null,
+ //                outputMode: 'file', // file|string|base64
+ //                tbodySelector: 'tr',
+ //                theadSelector: 'tr',
+ //                tableName: 'myTableName',
+ //                type: 'csv',
+ //                worksheetName: 'xlsWorksheetName'
+ //            };
+ //        }
+ //    });
+</script>
+</body>
+</html>
